@@ -19,7 +19,7 @@ require(path.join(process.cwd(), 'app', 'routes'))();
 require('./app/config/api')(app);
 
 //Config admin penguin
-require('./app/config/config-penguin')(app);
+//require('./app/config/config-penguin')(app);
 
 //Listen server
 app.listen(app.get('settings').port, () => {

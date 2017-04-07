@@ -1,18 +1,18 @@
 {
-  "name": "NAME_PACKAGE",
+  "name": "express-mvc-boilerplate",
   "version": "0.0.1",
-  "description": "DESCRIPTION_PACKAGE",
+  "repository": "https://github.com/marianoheller/express-mvc-boilerplate.git",
   "main": "app.js",
   "scripts": {
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
+    "ntsc": "ntsc",
+    "ntsc:w": "ntsc -w",
     "start": "node app.js"
   },
   "keywords": [],
-  "author": "NAME_AUTHOR",
+  "author": "Mariano Heller",
   "license": "MIT",
   "dependencies": {
-    "angular2": "2.0.0-beta.3",
+    "bluebird": "^3.5.0",
     "body-parser": "^1.14.2",
     "connect-mongo": "^1.1.0",
     "cookie-parser": "^1.4.1",
@@ -22,20 +22,21 @@
     "express-restify-mongoose": "^3.0.1",
     "express-session": "^1.13.0",
     "glob": "^6.0.4",
-    "jade": "^1.11.0",
+    "helmet": "^3.5.0",
     "method-override": "^2.3.5",
-    "mongoose": "^4.4.2",
-    "ng2-login-form": "^1.0.7",
+    "mongo-migrate": "^0.1.0",
+    "mongoose": "^4.7.*",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "penguin": "^0.3.5",
+    "pug": "~2.0.0-beta11",
+    "pug-bootstrap": "0.0.12",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
     "serve-favicon": "^2.3.0",
     "systemjs": "0.19.6",
-    "zone.js": "0.5.11"
+    "zone.js": "0.8.5"
   },
   "devDependencies": {
-    "typescript": "^1.7.5"
+    "ntypescript": "^1.7.5"
   }
 }

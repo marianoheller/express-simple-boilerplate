@@ -24,12 +24,15 @@ module.exports = (app, controllers) => {
       //Index
       app.get("/", index.main.bind(index));
 
+      //Ensayos
+      app.get("/ensayos",  middlewareAuth.login_required, index.ensayos);
+
       //login
       app.get("/login", middlewareAuth.is_logging, index.login.bind(index));
-      app.post("/login", passport.authenticate('local', {successRedirect: '/admin/'}));
+      app.post("/login", passport.authenticate('local', {successRedirect: '/'}));
 
       //Logout admin
-      app.route('/admin/logout').get(
+      app.route('/logout').get(
         middlewareAuth.login_required, 
         index.logout.bind(index)
       );

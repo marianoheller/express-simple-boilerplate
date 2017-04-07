@@ -11,8 +11,26 @@ class IndexController {
    @descrip: Index view
    */
    main (req, res) {
+      var usernameString = null;
+      if ( req.user && req.user.username ) {
+        usernameString = req.user.username;
+      }
+      
       try {
-        return res.render('index');
+        return res.render('index', { username: usernameString });
+      } catch (e) {
+        return res.render("500");
+      }
+   }
+
+
+   /*
+   @name: Ensayos
+   @descrip: Ensayos
+   */
+   ensayos (req, res) {
+     try {
+        return res.render('ensayos');
       } catch (e) {
         return res.render("500");
       }

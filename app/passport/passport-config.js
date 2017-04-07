@@ -32,8 +32,10 @@ module.exports = (app) => {
 						//Check if exist user
 						if (!user) return done(null, false, {message: `El email ${email} no existe!`});
 
-					//Hash password
-					let hashedPassword = crypto.createHash('sha512').update(password).digest('hex');
+						//Hash password
+						//let hashedPassword = crypto.createHash('sha512').update(password).digest('hex');
+						let hashedPassword = password;
+
 						//Check password
 						if (user.password === hashedPassword) {
 							return done(null, user);

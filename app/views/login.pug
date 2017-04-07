@@ -1,0 +1,20 @@
+extends layouts/main.pug
+
+//-extends ../../node_modules/pug-bootstrap/layouts/sign-in.pug
+
+block extraCSS
+  link(href='/publics/css/signin.css', rel='stylesheet')
+
+block content
+  br
+
+  div(class="container col-md-4 col-md-offset-4 clearfix")
+    .container
+    form(class="form-signin" method="post")
+      h2.form-signin-heading Ingresar
+      label.sr-only(for='inputEmail') Email
+      input#inputEmail.form-control(type='email', placeholder='Email', required='', autofocus='' name="email")
+      label.sr-only(for='inputPassword') Password
+      input#inputPassword.form-control(type='password', placeholder='Password', required='' name="password")
+
+      button.btn.btn-lg.btn-primary.btn-block(type='submit') Submit

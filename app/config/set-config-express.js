@@ -9,6 +9,8 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
+const bluebird = require('bluebird');
+const helmet = require('helmet')
 
 module.exports = (app) => {
   /*
@@ -18,6 +20,9 @@ module.exports = (app) => {
   new class ExpressConfig {
     
     constructor () {
+      //Helmet security
+      app.use(helmet());
+
       //Set setting file config.js
       app.set('settings', require('./config'));
       //Export data config for used in tempate
@@ -25,7 +30,7 @@ module.exports = (app) => {
 
       // Configure express to use jade templates
       app.set('views', path.join(process.cwd(), 'app', 'views'));
-      app.set('view engine', 'jade');
+      app.set('view engine', 'pug');
 
       //Override with the X-HTTP-Method-Override header in the request
       app.use(methodOverride('X-HTTP-Method-Override'));
@@ -57,6 +62,9 @@ module.exports = (app) => {
       app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
         extended: true
       }));
+
+      // Use bluebird
+      mongoose.Promise = bluebird;
 
       //Connect to database
       mongoose.connect('mongodb://' + app.get('settings').database.domain + '/' + app.get('settings').database.name);

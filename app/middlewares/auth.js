@@ -5,7 +5,8 @@ module.exports = {
   //Check if is logged
   login_required: (req, res, next) => {
     if (!req.isAuthenticated || !req.isAuthenticated()) {
-      res.send('Error de autorización');
+      //res.send('Error de autorización');
+      res.redirect("/login");
     } else {
       next();
     }
@@ -14,7 +15,7 @@ module.exports = {
   //Check if is logging if is ok redirect to admin
   is_logging: (req, res, next) => {
     if (req.isAuthenticated && req.isAuthenticated()) {
-      res.redirect("/admin");
+      res.redirect("/");
     } else {
       next();
     }
